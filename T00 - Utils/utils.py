@@ -1,11 +1,15 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from sklearn.linear_model import LogisticRegression
 from sklearn.linear_model import Perceptron
-from sklearn.svm import SVC
-from sklearn.tree import DecisionTreeClassifier
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.neighbors import KNeighborsClassifier
+
+# from sklearn.linear_model import LogisticRegression
+# from sklearn.svm import SVC
+# from sklearn.tree import DecisionTreeClassifier
+# from sklearn.ensemble import RandomForestClassifier
+# from sklearn.neighbors import KNeighborsClassifier
+# from sklearn.naive_bayes import GaussianNB
+# from sklearn.ensemble import AdaBoostClassifier
+# from sklearn.ensemble import GradientBoostingClassifier
 
 # Setup
 resolution = 0.02
@@ -37,20 +41,28 @@ def _check_array(X_train, X_test, y_train, y_test) -> None:
 
 
 def _check_clf(clf) -> None:
-    if isinstance(clf, LogisticRegression):
-        fitType = "logistic"
-    elif isinstance(clf, Perceptron):
+    if isinstance(clf, Perceptron):
         fitType = "perceptron"
-    elif isinstance(clf, SVC):
-        fitType = "svm"
-    elif isinstance(clf, DecisionTreeClassifier):
-        fitType = "tree"
-    elif isinstance(clf, RandomForestClassifier):
-        fitType = "forest"
-    elif isinstance(clf, KNeighborsClassifier):
-        fitType = "knn"
+    # elif isinstance(clf, LogisticRegression):
+    #     fitType = "logistic"
+    # elif isinstance(clf, SVC):
+    #     fitType = "svm"
+    # elif isinstance(clf, DecisionTreeClassifier):
+    #     fitType = "tree"
+    # elif isinstance(clf, RandomForestClassifier):
+    #     fitType = "forest"
+    # elif isinstance(clf, KNeighborsClassifier):
+    #     fitType = "knn"
+    # elif isinstance(clf, GaussianNB):
+    #     fitType = "bayes"
+    # elif isinstance(clf, AdaBoostClassifier):
+    #     fitType = "ada"
+    # elif isinstance(clf, GradientBoostingClassifier):
+    #     fitType = "gb"
+    # else:
+    #     raise Exception("Unknown classifier: " + type(clf))
     else:
-        raise Exception("Unknown classifier: " + type(clf))
+        fitType = "other"
     return fitType
 
 
